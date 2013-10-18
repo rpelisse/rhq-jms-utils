@@ -12,8 +12,10 @@ if [ ! -e "${SCRIPT}" ]; then
   exit 2
 fi
 
-readonly RHQ_CLI_HOME=${RHQ_CLI_HOME:-${HOME}/Products/jon-server-3.1.2-allplugins/rhq-remoting-cli-4.4.0.JON312GA/bin/}
+readonly RHQ_CLI_HOME=${RHQ_CLI_HOME:-${HOME}/Products/jon-server-3.1.2-allplugins/rhq-remoting-cli-4.4.0.JON312GA}
 readonly JON_USERNAME=${JON_USERNAME:-'rhqadmin'}
 readonly JON_PASSWORD=${JON_PASSWORD:-${JON_USERNAME}}
+readonly JON_SERVER=${JON_SERVER:-'localhost'}
+readonly JON_PORT=${JON_PORT:-'7080'}
 
-"${RHQ_CLI_HOME}/rhq-cli.sh" -u "${JON_USERNAME}" -p "${JON_PASSWORD}" -f "${SCRIPT}"
+"${RHQ_CLI_HOME}/bin/rhq-cli.sh" -u "${JON_USERNAME}" -p "${JON_PASSWORD}" -f "${SCRIPT}" -s "${JON_SERVER}" -t "${JON_PORT}"
