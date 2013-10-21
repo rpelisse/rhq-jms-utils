@@ -1,4 +1,5 @@
 var resourceCriteria = new ResourceCriteria()
+resourceCriteria.clearPaging() 
 resourceCriteria.addFilterResourceTypeName("Queue")
 
 var it = ResourceManager.findResourcesByCriteria(resourceCriteria).iterator()
